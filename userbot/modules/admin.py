@@ -34,16 +34,16 @@ from userbot import BOTLOG, BOTLOG_CHATID, CMD_HELP
 from userbot.events import register
 
 # =================== CONSTANT ===================
-PP_TOO_SMOL = "`Gambar Terlalu Kecil`"
+PP_TOO_SMOL = "`Gambar Kekecilan pepek`"
 PP_ERROR = "`Gagal Memproses Gambar`"
-NO_ADMIN = "`Lord Bukan Admin:)`"
-NO_PERM = "`Lord Tidak Mempunyai Izin!`"
+NO_ADMIN = "`Gabisa pepek lu bukan admin:)`"
+NO_PERM = "`Lu ga Punya Izin!`"
 NO_SQL = "`Berjalan Pada Mode Non-SQL`"
 
 CHAT_PP_CHANGED = "`Berhasil Mengubah Profil Grup`"
 CHAT_PP_ERROR = (
     "`Ada Masalah Dengan Memperbarui Foto,`"
-    "`Mungkin Karna Lord Bukan Admin,`"
+    "`Mungkin Karna Lu Bukan Admin,`"
     "`Atau Tidak Mempunyai Izin.`"
 )
 INVALID_MEDIA = "`Media Tidak Valid`"
@@ -134,7 +134,7 @@ async def promote(promt):
         pin_messages=True,
     )
 
-    await promt.edit("`Promosikan Pengguna Sebagai Admin... Mohon Menunggu`")
+    await promt.edit("`Promosikan Temenlu Sebagai Admin... Tunggu sebentar pepek`")
     user, rank = await get_user_from_event(promt)
     if not rank:
         rank = "Admin"  # Just in case.
@@ -144,7 +144,7 @@ async def promote(promt):
     # Try to promote if current user is admin or creator
     try:
         await promt.client(EditAdminRequest(promt.chat_id, user.id, new_rights, rank))
-        await promt.edit("`Berhasil Mempromosikan Pengguna Ini Sebagai Admin!`")
+        await promt.edit("`Berhasil Mempromosikan Temen lu jadi Admin!`")
         await sleep(5)
         await promt.delete()
 
@@ -326,7 +326,7 @@ async def spider(spdr):
 
     if user.id == self_user.id:
         return await spdr.edit(
-            "`Tangan Terlalu Pendek, Tidak Bisa Membisukan Diri Sendiri...\n(ヘ･_･)ヘ┳━┳`"
+            "`Lu tolol ya?, Gabisa ngebisuin diri sendiri pepek...\n(ヘ･_･)ヘ┳━┳`"
         )
 
     # If everything goes well, do announcing and mute
@@ -341,7 +341,7 @@ async def spider(spdr):
             if reason:
                 await spdr.edit(f"**Telah Dibisukan!**\n**Alasan:** `{reason}`")
             else:
-                await spdr.edit("`Telah Dibisukan!`")
+                await spdr.edit("`Kesian bisu haha!`")
 
             # Announce to logging group
             if BOTLOG:
@@ -518,10 +518,10 @@ async def rm_deletedacc(show):
 
     con = show.pattern_match.group(1).lower()
     del_u = 0
-    del_status = "`Tidak Menemukan Akun Terhapus, Grup Bersih`"
+    del_status = "`Tidak Menemukan Akun Jurig, Grup aman dan bersih`"
 
     if con != "clean":
-        await show.edit("`Mencari Akun Hantu/Terhapus/Zombie...`")
+        await show.edit("`Mencari Akun Jurig/Terhapus/Blegug...`")
         async for user in show.client.iter_participants(show.chat_id):
 
             if user.deleted:
@@ -529,7 +529,7 @@ async def rm_deletedacc(show):
                 await sleep(1)
         if del_u > 0:
             del_status = (
-                f"`Menemukan` **{del_u}** `Akun Hantu/Terhapus/Zombie Dalam Grup Ini,"
+                f"`Menemukan` **{del_u}** `Akun Jurig/Terhapus/Zombie Dalam Grup Ini,"
                 "\nBersihkan Itu Menggunakan Perintah .zombies clean`")
         return await show.edit(del_status)
 
@@ -540,9 +540,9 @@ async def rm_deletedacc(show):
 
     # Well
     if not admin and not creator:
-        return await show.edit("`Lord Bukan Admin Disini!`")
+        return await show.edit("`Lu Bukan Admin Disini pepek!`")
 
-    await show.edit("`Menghapus Akun Terhapus...\nMohon Menunggu Lord Sedang Dalam Proses`")
+    await show.edit("`Menghapus Akun Jurig...\nMohon Menunggu... Sedang Dalam Proses`")
     del_u = 0
     del_a = 0
 
@@ -553,7 +553,7 @@ async def rm_deletedacc(show):
                     EditBannedRequest(show.chat_id, user.id, BANNED_RIGHTS)
                 )
             except ChatAdminRequiredError:
-                return await show.edit("`Lord Tidak Memiliki Izin Banned Dalam Grup Ini`")
+                return await show.edit("`Lu gapunya Izin Banned Dalam Grup Ini pepek`")
             except UserAdminInvalidError:
                 del_u -= 1
                 del_a += 1
@@ -561,12 +561,12 @@ async def rm_deletedacc(show):
             del_u += 1
 
     if del_u > 0:
-        del_status = f"`Membersihkan` **{del_u}** `Akun Terhapus`"
+        del_status = f"`Membersihkan` **{del_u}** `Akun Jurig`"
 
     if del_a > 0:
         del_status = (
-            f"Membersihkan **{del_u}** Akun Terhapus "
-            f"\n**{del_a}** `Admin Akun Terhapus Tidak Bisa Dihapus.`"
+            f"Membersihkan **{del_u}** Akun Jurig "
+            f"\n**{del_a}** `Admin Akun Jurig Ga Bisa Dihapus.`"
         )
     await show.edit(del_status)
     await sleep(2)
@@ -614,7 +614,7 @@ async def pin(msg):
     to_pin = msg.reply_to_msg_id
 
     if not to_pin:
-        return await msg.edit("`Mohon Balas Ke Pesan Untuk Melakukan Pin.`")
+        return await msg.edit("`Lu pepek,kalo mau pin bales ke pesan yang mau di pin.`")
 
     options = msg.pattern_match.group(1)
 
@@ -659,7 +659,7 @@ async def kick(usr):
     if not user:
         return await usr.edit("`Tidak Dapat Menemukan Pengguna.`")
 
-    await usr.edit("`Melakukan Kick....`")
+    await usr.edit("`LOADING Lagi nge kick si pepek....`")
 
     try:
         await usr.client.kick_participant(usr.chat_id, user.id)
@@ -672,7 +672,7 @@ async def kick(usr):
             f"[{user.first_name}](tg://user?id={user.id}) **Telah Dikick Dari Grup**\n**Alasan:** `{reason}`"
         )
     else:
-        await usr.edit(f"[{user.first_name}](tg://user?id={user.id}) **Telah Dikick Dari Grup**")
+        await usr.edit(f"[{user.first_name}](tg://user?id={user.id}) **Si Pepek Dikick Dari Grup**")
         await sleep(5)
         await usr.delete()
 
@@ -715,7 +715,7 @@ async def get_users(show):
     try:
         await show.edit(mentions)
     except MessageTooLongError:
-        await show.edit("Lord, Grup Ini Terlalu Besar Mengunggah Daftar Pengguna Sebagai File.")
+        await show.edit("Pepek, Grup Ini Terlalu Besar Mengunggah Daftar Pengguna Sebagai File.")
         file = open("daftarpengguna.txt", "w+")
         file.write(mentions)
         file.close()
@@ -744,7 +744,7 @@ async def get_user_from_event(event):
             user = int(user)
 
         if not user:
-            return await event.edit("`Ketik Username Atau Balas Ke Pengguna!`")
+            return await event.edit("`Heh Pepek! Ketik Username Atau Balas Ke Pengguna!`")
 
         if event.message.entities is not None:
             probable_user_mention_entity = event.message.entities[0]
@@ -836,7 +836,7 @@ async def get_userdel_from_event(event):
             user = int(user)
 
         if not user:
-            return await event.edit("`Ketik username Atau Balas Ke Pesan Pengguna!`")
+            return await event.edit("`Heh Pepek! Ketik username Atau Balas Ke Pesan Pengguna!`")
 
         if event.message.entities is not None:
             probable_user_mention_entity = event.message.entities[0]
