@@ -63,13 +63,13 @@ async def pingme(pong):
     """ For .ping command, ping the userbot from any chat.  """
     uptime = await get_readable_time((time.time() - StartTime))
     start = datetime.now()
-    await pong.edit("`Lagi ngePing..............`")
+    await pong.edit("`Lagi nge Ping..............`")
     end = datetime.now()
     duration = (end - start).microseconds / 1000
     await pong.edit(f"**PONG!**\n"
-                    f"✅ **Ping:** "
+                    f"» **Ping:** "
                     f"`%sms` \n"
-                    f"✅ **Uptime:** "
+                    f"» **Uptime:** "
                     f"`{uptime}` \n" % (duration))
 
 
@@ -82,9 +82,9 @@ async def pingme(pong):
     end = datetime.now()
     duration = (end - start).microseconds / 1000
     await pong.edit(f"**Duar Pepek!**\n"
-                    f"✅ __Ping:__ "
+                    f"» __Ping:__ "
                     f"`%sms` \n"
-                    f"✅ __Uptime:__ "
+                    f"» __Uptime:__ "
                     f"`{uptime}` \n" % (duration))
 
 
@@ -99,12 +99,12 @@ async def pingme(pong):
     await pong.edit("**CROOT!**")
     end = datetime.now()
     duration = (end - start).microseconds / 1000
-    await pong.edit(f"**🛠️ PING 🛠️**\n"
-                    f"🗡️ **Ping:** "
+    await pong.edit(f"**PING**\n"
+                    f"**Ping:** "
                     f"`%sms` \n"
-                    f"🗡️ **Uptime:** "
+                    f"**Uptime:** "
                     f"`{uptime}` \n"
-                    f"**✦҈͜͡➳ BOSHT:** `{ALIVE_NAME}`" % (duration))
+                    f"**BOSHT:** `{ALIVE_NAME}`" % (duration))
 
 
 @register(outgoing=True, pattern="^.sinyal$")
@@ -176,7 +176,7 @@ async def pingme(pong):
     await pong.edit("`Pong.....🔨`")
     end = datetime.now()
     duration = (end - start).microseconds / 9000
-    await pong.edit("✘ **Ping!**\n`%sms`" % (duration))
+    await pong.edit("**Ping!**\n`%sms`" % (duration))
 
 CMD_HELP.update(
     {"ping": "`.ping` ; `.lping` ; `.xping` ; `.sping`\
