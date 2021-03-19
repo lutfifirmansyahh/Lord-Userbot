@@ -399,6 +399,12 @@ async def koc(e):
         await e.edit("`NGENTOT`")
 
 
+@register(outgoing=True, pattern="^.ig$")
+async def usit(e):
+    await e.edit(
+        "\n[Instagram](Instagram.com/lutfifirmansyahh)")
+
+
 @register(outgoing=True, pattern='^.coli(?: |$)(.*)')
 async def typewriter(typew):
     typew.pattern_match.group(1)
@@ -490,6 +496,8 @@ CMD_HELP.update({
     \nUsage: awas ada jamal.\
     \n\n`.dimas`\
     \nUsage: awas ada gondrong\
+    \n\n`.ig`\
+    \nUsage: Instagram BOSHT\
     \n\n`.gombal`\
     \nUsage: buat bercanda\
     \n\n`.cinta`\
