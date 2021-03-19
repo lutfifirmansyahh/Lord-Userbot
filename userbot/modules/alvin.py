@@ -402,23 +402,29 @@ async def koc(e):
 @register(outgoing=True, pattern="^.ig$")
 async def usit(e):
     await e.edit(
-        "\n[Instagram](Instagram.com/lutfifirmansyahh)")
+        "\n[INSTAGRAM](Instagram.com/lutfifirmansyahh)")
 
 
-@register(outgoing=True, pattern='^.coli(?: |$)(.*)')
+@register(outgoing=True, pattern="^.Instagram$")
+async def usit(e):
+    await e.edit(
+        "\n[INSTAGRAM](Instagram.com/dimasary15_)")
+
+
+@register(outgoing=True, pattern='^.kontol(?: |$)(.*)')
 async def typewriter(typew):
     typew.pattern_match.group(1)
-    await typew.edit("`Kenapa ya?`")
+    await typew.edit("`LU SEMUA`")
     sleep(1)
-    await typew.edit("`Kalo selesai`")
+    await typew.edit("`KONTOL`")
     sleep(1)
-    await typew.edit("`COLI`")
+    await typew.edit("`NGENTOT`")
     sleep(1)
-    await typew.edit("`Bawaan nya`")
+    await typew.edit("`ANJING`")
     sleep(1)
-    await typew.edit("`Suka nyesel`")
+    await typew.edit("`BABI`")
     sleep(1)
-    await typew.edit("`:(`")
+    await typew.edit("`KATA UPI`")
 # Create by myself @localheart
 
 
@@ -498,12 +504,14 @@ CMD_HELP.update({
     \nUsage: awas ada gondrong\
     \n\n`.ig`\
     \nUsage: Instagram BOSHT\
+    \n\n`.instagram`\
+    \nUsage: Instagram Dimas\
     \n\n`.gombal`\
     \nUsage: buat bercanda\
     \n\n`.cinta`\
     \nUsage: mengirim cintamu ke seseorang.\
     \n\n`.sayang`\
     \nUsage: untuk jadi buaya.\
-    \n\n`.coli`\
-    \nUsage: Ngatau."
+    \n\n`.kontol`\
+    \nUsage: Lu semua kontol."
 })
